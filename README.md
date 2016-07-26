@@ -19,7 +19,7 @@ Briefly, the following operations are run in sequence using [ESRI ArcGIS](www.es
 6. protected areas are dissolved such that overlapping areas are assigned the best IUCN criteria
 7. protected areas are converted to raster format
 
-To run all computational analyses: run `make clean && make all` in the command prompt. After the processing has completed the final shapefile will be stored in "data/final". *Note that all parameters can be customized by altering files in the parameters folder.* 
+To run all computational analyses: double click on `run.bat`. After the processing has completed the final shapefile will be stored in "data/final". *Note that all parameters can be customized by altering files in the parameters folder.* 
 
 -----
 

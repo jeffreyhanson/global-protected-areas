@@ -1,5 +1,5 @@
 ## main operations
-all: clean download process
+all: download process
 
 # command to clean dirs
 clean:
