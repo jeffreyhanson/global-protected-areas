@@ -1,0 +1,6 @@
+title = "rasterization parameters"
+
+cell_size = 100000
+format="tif"
+
+ 
