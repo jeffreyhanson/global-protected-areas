@@ -40,6 +40,9 @@ To run all computational analyses: double click on `run.bat`. After the processi
 * Programs
 	+ ArcGIS (version 10.1)
 	+ GNU make
+* Python packages
+	+ arcpy (installed automatically with ArcMAP)
+	+ toml
  
 **If you found this repository helped you, please cite it.**
 
