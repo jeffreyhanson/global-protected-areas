@@ -47,7 +47,9 @@ To run all computational analyses: double click on `run.bat`. After the processi
 * Python packages
 	+ arcpy (installed automatically with ArcMAP)
 	+ toml
- 
-**If you found this repository helped you, please cite it.**
+
+-----
+
+### If you used this program in your paper, please cite it.
 
 Hanson J.O. (2016). Global protected areas. version 0.0.0. doi: XXXXX.
