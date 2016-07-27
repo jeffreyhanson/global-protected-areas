@@ -1,17 +1,16 @@
-# C++ compiled files
-*.o
-*.so
-*.dll
-
-# R profile files
-*.Rproj.user
-*.Rhistory
-
-# log files
-gurobi.log
-
 # system files
 .directory
+
+# data
+*.shp
+*.shx
+*.cpg
+*.dbf
+*.prj
+*.zip
+*.pdf
+*.txt
+*.lock
 
 # cache
 data/intermediate/*
