@@ -6,7 +6,7 @@ import sys
 
 ### Preliminary processing
 # load parameters
-with open("general.toml") as conffile:
+with open("code/parameters/general.toml") as conffile:
 	general_params = toml.loads(conffile.read())
 
 # set environmental variables

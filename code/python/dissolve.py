@@ -5,9 +5,9 @@ import toml
 
 ### Preliminary processing
 # load parameters
-with open("general.toml") as conffile:
+with open("code/parameters/general.toml") as conffile:
 	general_params = toml.loads(conffile.read())
-with open("dissolve.toml") as conffile:
+with open("code/parameters/dissolve.toml") as conffile:
 	dissolve_params = toml.loads(conffile.read())
 
 # set environmental variables

@@ -1,4 +1,4 @@
 title = "projection parameters"
 
-output_coordinate_reference_system: "World_Behrman"
-distance_coordinate_reference_system: ""
+output_coordinate_reference_system = 54017 # World_Behrman
+distance_coordinate_reference_system = 54002 # World_Equidistant_Cylindrical
