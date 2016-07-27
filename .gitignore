@@ -9,6 +9,9 @@
 *.prj
 *.zip
 *.pdf
+*.sbx
+*.sbn
+*.xml
 *.txt
 *.lock
 
