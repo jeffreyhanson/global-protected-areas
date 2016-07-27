@@ -2,7 +2,6 @@ title = "simplification parameters"
 
 simplification_algorithm = "POINT_REMOVE"
 maximum_allowable_offset = 5000
-minimum_area = 1000
-
-
- 
+minimum_area = 10000
+error_option="RESOLVE_ERRORS"
+collapsed_point_option="NO_KEEP"
