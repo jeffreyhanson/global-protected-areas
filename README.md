@@ -42,7 +42,7 @@ To run all computational analyses: double click on `run.bat`. After the processi
 * Operating system
 	+ Windows (7+)
 * Programs
-	+ ArcGIS (version 10.1)
+	+ ArcGIS (version 10.3+)
 	+ GNU make
 * Python packages
 	+ arcpy (installed automatically with ArcMAP)
@@ -52,4 +52,4 @@ To run all computational analyses: double click on `run.bat`. After the processi
 
 ### If you used this program in your paper, please cite it.
 
-Hanson J.O. (2016). Global protected areas. version 0.0.0. doi: XXXXX.
+Hanson J. O. (2016). Global protected areas. version 0.0.0. doi: 10.5281/zenodo.35031.
