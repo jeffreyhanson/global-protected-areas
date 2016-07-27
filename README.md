@@ -8,7 +8,7 @@ Correspondence should be addressed to [jeffrey.hanson@uqconnect.edu.au](mailto:j
 
 -----
 
-This repository contains source code for automatically downloading, cleaning, and processing the [World Database on Protected Areas](www.protectedplanet). By using this repository, users can maintain an update version of the world's protected areas data set.
+This repository contains source code for automatically downloading, cleaning, and processing the [World Database on Protected Areas](www.protectedplanet). By using this repository, users can maintain an up to date version of the world's protected areas.
 
 Briefly, the following operations are run in sequence using [ESRI ArcGIS](www.esri.com/software/arcgis):
 
