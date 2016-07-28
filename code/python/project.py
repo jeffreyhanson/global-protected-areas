@@ -13,10 +13,8 @@ with open("code/parameters/project.toml") as conffile:
 
 # set environmental variables
 arcpy.env.parallelProcessingFactor=general_params['threads']
+arcpy.env.overwriteOutput = True
 
 ### Main processing
-
-print project_params[sys.argv[3]]
-
 arcpy.Project_management(sys.argv[1], sys.argv[2], project_params[sys.argv[3]])
 

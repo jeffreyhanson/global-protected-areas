@@ -1,5 +1,7 @@
 # system files
 .directory
+*.lock
+junk
 
 # data
 *.shp
@@ -13,7 +15,11 @@
 *.sbn
 *.xml
 *.txt
-*.lock
+
+# product files
+*.tif
+*.tfw
+*.tif.ovr
 
 # cache
 data/intermediate/*

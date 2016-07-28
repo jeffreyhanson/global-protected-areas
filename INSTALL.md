@@ -3,13 +3,31 @@ Installation Instructions
 
 This program has several dependencies that need to be installed before it can be used.
 
-First, the following programs are required to use this program. Click on the links in the parenthesis for installation instructions:
+The following programs need to be installed to use this program. Follow the instructions underneath them to install them.
 
-* GNU make (watch this youtube video: https://www.youtube.com/watch?v=1N-g-Xvw3CM)
-* pip (https://pip.pypa.io/en/latest/installing. Note that the Scripts folder [eg. C:\Python27\ArcGIS10.3\Scripts] must also be added to the PATH variable).
+* ArcMap 
+	+ contact your IT support
+* GNU make
+	+ install MINGW following (instructions in this video)[https://www.youtube.com/watch?v=1N-g-Xvw3CM]
+	+ ensure that the PATH variable is set to refer to the bin directory
+* pip
+	+ (download and run this python script)[https://bootstrap.pypa.io/get-pip.py]
+	+ add the `Scripts` folder in the ArcGIS folder to the PATH variable (eg. C:\Python27\ArcGIS10.3\Scripts)
+* grass
+	+ (download the installer and follow the instructions)[https://grass.osgeo.org/download/software/ms-windows/]
+	+ add the `OSGeo4W64/bin` to the PATH variable (eg. C:\OSGeo4W64\bin)
+* R
+	+ download and install R
 
-Additionally, the following python packages are required to use this program. Type the code in the parenthesis into the command prompt to install them:
 
-* wget (pip install wget)
-* toml (pip install toml)
+The following python packages are also required to use this program:
 
+* wget
+	+ run the following code in the command prompt: `pip install wget`
+* toml 
+	+ run the following code in the command prompt: `pip install toml`
+
+The following R packages are also required:
+
+* rgrass7
+	+ run the following code in the command prompt: `R -e "options(repos = 'http://cran.cnr.berkeley.edu'); install.packages('rgrass7')"`

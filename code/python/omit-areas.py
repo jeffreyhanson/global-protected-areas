@@ -14,6 +14,7 @@ with open("code/parameters/omit-areas.toml") as conffile:
 
 # set environmental variables
 arcpy.env.parallelProcessingFactor=general_params['threads']
+arcpy.env.overwriteOutput = True
 
 ### Main processing
 ## parse expression

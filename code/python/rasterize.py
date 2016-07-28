@@ -2,6 +2,7 @@
 # load libraries
 import arcpy
 import toml
+import sys
 
 ### Preliminary processing
 # load parameters
@@ -12,15 +13,9 @@ with open("code/parameters/rasterize.toml") as conffile:
 
 # set environmental variables
 arcpy.env.parallelProcessingFactor=general_params['threads']
+arcpy.env.overwriteOutput = True
 
 ### Main processing
 # rasterize data
-arcpy.FeatureToRaster_conversion(
-	'data/intermediate/06/WDPA-shapefile-dissolved.shp', 'data/intermediate/07/WDPA.tif',
-	cell_size=rasterize_params['cell_size'],
-)
+arcpy.PolygonToRaster_conversion(sys.argv[1], 'IUCN_CODE', sys.argv[2], rasterize_params['cell_assignment'], 'NONE', rasterize_params['cellsize'])
 
-
-
-
- 

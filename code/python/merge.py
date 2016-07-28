@@ -2,6 +2,7 @@
 # load libraries
 import arcpy
 import toml
+import sys
 
 ### Preliminary processing
 # load parameters
@@ -12,14 +13,10 @@ with open("code/parameters/project.toml") as conffile:
 
 # set environmental variables
 arcpy.env.parallelProcessingFactor=general_params['threads']
+arcpy.env.overwriteOutput = True
 
 ### Main processing
-
-# merge with polygons
-arcpy.Merge_management(
-	['data/intermediate/05/WDPA-shapefile-points-buffered-projected.shp', 'data/intermediate/04/WDPA-shapefile-polygons.shp'],
-	'data/intermediate/05/WDPA-shapefile'
-)
+arcpy.Merge_management(sys.argv[1:2], sys.argv[3])
 
 
 

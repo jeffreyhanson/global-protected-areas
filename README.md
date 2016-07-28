@@ -44,6 +44,8 @@ This program has several dependencies. To install them, please see [INSTALL.md](
 * Programs
 	+ ArcGIS (version 10.3+)
 	+ GNU make
+	+ pip
+	+ grass
 * Python packages
 	+ arcpy (installed automatically with ArcMAP)
 	+ toml

@@ -13,6 +13,7 @@ with open("code/parameters/simplify.toml") as conffile:
 
 # set environmental variables
 arcpy.env.parallelProcessingFactor=general_params['threads']
+arcpy.env.overwriteOutput = True
 
 ### Main processing
 arcpy.SimplifyPolygon_cartography(

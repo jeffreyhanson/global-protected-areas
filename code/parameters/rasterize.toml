@@ -1,6 +1,5 @@
 title = "rasterization parameters"
 
-cell_size = 100000
-format="tif"
-
+cellsize = 100000
+cell_assignment = 'CELL_CENTER'
  
