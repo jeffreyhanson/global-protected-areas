@@ -2,6 +2,7 @@
 # load libraries
 import arcpy
 import toml
+import os
 import sys
 
 ### Preliminary processing
@@ -14,8 +15,5 @@ arcpy.env.parallelProcessingFactor=general_params['threads']
 arcpy.env.overwriteOutput = True
 
 ### Main processing
-# run repair geometry
-arcpy.RepairGeometry_management(sys.argv[1])
-arcpy.RepairGeometry_management(sys.argv[1])
-arcpy.RepairGeometry_management(sys.argv[1])
-arcpy.RepairGeometry_management(sys.argv[1])
+# create gdb
+arcpy.Copy_management(sys.argv[1], sys.argv[2])

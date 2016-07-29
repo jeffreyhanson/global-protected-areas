@@ -15,7 +15,7 @@ arcpy.env.overwriteOutput = True
 
 ### Main processing
 # create new column for integer codes for IUCN criteria
-arcp?y.AddField_management(sys.argv[1], 'IUCN_CODE', 'INTEGER')
+arcpy.AddField_management(sys.argv[1], 'IUCN_CODE', 'INTEGER')
 
 # assign integer values based on IUCN criteria
 arcpy.CalculateField_management(sys.argv[1], 'IUCN_CODE', 'get_iucn_code(!IUCN_CAT!)', 'PYTHON_9.3',

@@ -1,5 +1,6 @@
 ### Initialization
 # load libraries
+import arcpy
 import toml
 import wget
 import datetime
@@ -8,7 +9,7 @@ import zipfile
 
 # define parameters
 now=datetime.datetime.now()
-url='http://www.protectedplanet.net/downloads/WDPA_'+str(now.strftime('%B'))+str(now.year)+'?type=shapefile'
+url='http://wcmc.io/wdpa_current_release'
 
 ### Preliminary processing
 # load parameters
@@ -17,9 +18,10 @@ with open("code/parameters/general.toml") as conffile:
 
 ### Main processing
 # download file
-filename = wget.download(url, out='data/raw/WDPA-shapefile.zip')
+current_date = str(now.strftime('%B'))+str(now.year)
+filename = wget.download(url, out='data/raw/WDPA_'+current_date+'_Public.zip')
 
 # unzip file
-os.mkdir('data/raw/WDPA-shapefile')
+os.mkdir('data/raw/WDPA_geodatabase')
 zip=zipfile.ZipFile(filename)
-zip.extractall('data/raw/WDPA-shapefile')
+zip.extractall('data/raw/WDPA_geodatabase')

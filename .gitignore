@@ -2,6 +2,7 @@
 .directory
 *.lock
 junk
+Thumbs.db
 
 # data
 *.shp
@@ -15,6 +16,12 @@ junk
 *.sbn
 *.xml
 *.txt
+*.gdb
+*.gdb*
+*.gdb/*
+a000*
+timestamps
+gdb
 
 # product files
 *.tif

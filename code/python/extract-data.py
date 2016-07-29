@@ -1,8 +1,10 @@
 ### Initialization
 # load libraries
 import arcpy
-import toml
+import os
 import sys
+import datetime
+import toml
 
 ### Preliminary processing
 # load parameters
@@ -13,9 +15,13 @@ with open("code/parameters/general.toml") as conffile:
 arcpy.env.parallelProcessingFactor=general_params['threads']
 arcpy.env.overwriteOutput = True
 
+# get date string
+now=datetime.datetime.now()
+current_date = str(now.strftime('%B'))+str(now.year)
+
 ### Main processing
-# run repair geometry
-arcpy.RepairGeometry_management(sys.argv[1])
-arcpy.RepairGeometry_management(sys.argv[1])
-arcpy.RepairGeometry_management(sys.argv[1])
-arcpy.RepairGeometry_management(sys.argv[1])
+# extract data from geodatabase
+arcpy.CopyFeatures_management(
+	'data/raw/WDPA_geodatabase/WDPA_'+current_date+'_Public/WDPA_'+current_date+'_Public.gdb/WDPA_'+sys.argv[1]+'_'+current_date,
+	sys.argv[2]
+)
