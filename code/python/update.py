@@ -14,6 +14,6 @@ arcpy.env.parallelProcessingFactor=general_params['threads']
 arcpy.env.overwriteOutput = True
 
 ### Main processing
-# dissolve data
-arcpy.Dissolve_management(sys.argv[1], sys.argv[3], sys.argv[2])
+# update data
+arcpy.Update_analysis(sys.argv[1],sys.argv[2], sys.argv[3])
 

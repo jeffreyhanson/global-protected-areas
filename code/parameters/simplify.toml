@@ -1,7 +1,7 @@
 title = "simplification parameters"
 
 algorithm = "POINT_REMOVE"
-tolerance = 5000
-minimum_area = 10000
-error_option="RESOLVE_ERRORS"
+tolerance = 1000
+minimum_area = 1000
+error_option="NO_CHECK"
 collapsed_point_option="NO_KEEP"

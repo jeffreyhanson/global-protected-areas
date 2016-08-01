@@ -2,15 +2,15 @@ Global protected areas (under active development)
 =================================================
 [![DOI](https://zenodo.org/badge/18940/paleo13/global-protected-areas.svg)](https://zenodo.org/badge/latestdoi/18940/paleo13/global-protected-areas)
 
-[Jeffrey O. Hanson](wwww.jeffrey-hanson.com)
+[Jeffrey O. Hanson](https://wwww.jeffrey-hanson.com)
 
 Correspondence should be addressed to [jeffrey.hanson@uqconnect.edu.au](mailto:jeffrey.hanson@uqconnect.edu.au)
 
 -----
 
-This repository contains source code for automatically downloading, cleaning, and processing the [World Database on Protected Areas](www.protectedplanet). By using this repository, users can maintain an up to date version of the world's protected areas.
+This repository contains source code for automatically downloading, cleaning, and processing the [World Database on Protected Areas](https://www.protectedplanet). By using this repository, users can maintain an up to date version of the world's protected areas.
 
-Briefly, the following operations are run in sequence using [ESRI ArcGIS](www.esri.com/software/arcgis):
+Briefly, the following operations are run in sequence using [ESRI ArcGIS](https://www.esri.com/software/arcgis):
 
 1. raw data is downloaded
 2. geometry issues are resolved
@@ -32,12 +32,12 @@ Double click on `run.bat` to run all computational analyses. After the processin
 ### Repository overview
 
 * data
-	+ _raw_: raw data downloaded form [protected planet](www.protectedplanet.net)
+	+ _raw_: raw data downloaded form [protected planet](https://www.protectedplanet.net)
 	+ _intermediate_: data generated during processing
 	+ _final_: final cleaned dataset
 * code
 	+ _parameters_: files used to customise analysis in [TOML format](https://github.com/toml-lang/toml)
-	+ [_python_](www.python.org): scripts used to run the analysis 
+	+ [_python_](https://www.python.org): scripts used to run the analysis 
 
 ### Software
 

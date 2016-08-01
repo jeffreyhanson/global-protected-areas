@@ -1,30 +1,9 @@
 title = 'area omission parameters'
 
-desig = ['Botanical Garden', 'Recreation Area']
-desig_eng = ['UNESCO-MAB Biosphere Reserve']
-status = ['Proposed', 'Not Reported']
-parent_iso = ['ABNJ', 'AFG', 
-'AGO', 'ALB', 'AND', 'ARE', 'ARG', 'ARM', 'ATG', 'AUT', 
-'AZE', 'BDI', 'BEL', 'BEN', 'BFA', 'BGD', 'BGR', 'BHS', 'BIH', 
-'BLR', 'BLR;POL', 'BLZ', 'BOL', 'BRA', 'BRB', 'BRN', 'BTN', 'BWA', 
-'CAF', 'CAN', 'CAN;USA', 'CHE', 'CHE;ITA', 'CHL', 'CHN', 'CIV', 
-'CIV;GIN', 'CMR', 'COD', 'COG', 'COG;CMR;CAF', 'COK', 'COL', 
-'COM', 'CPV', 'CRI', 'CRI;PAN', 'CUB', 'CYP', 'CZE', 'DEU', 'DJI', 
-'DMA', 'DNK', 'DOM', 'DZA', 'ECU', 'EGY', 'ERI', 'ESH', 'ESP', 
-'EST', 'ETH', 'FIN', 'FIN;SWE', 'FJI', 'FRA', 'FRA;ESP', 'FRA;ITA;MCO', 
-'FSM', 'GAB', 'GBR', 'GEO', 'GHA', 'GIN', 'GMB', 'GNB', 'GNQ', 
-'GRC', 'GRD', 'GTM', 'GUY', 'HND', 'HRV', 'HUN', 'IDN', 'IND', 
-'IRL', 'IRN', 'IRQ', 'ISL', 'ISR', 'ITA', 'JAM', 'JOR', 'JPN', 
-'KAZ', 'KEN', 'KGZ', 'KHM', 'KIR', 'KOR', 'KWT', 'LAO', 'LBN', 
-'LBR', 'LCA', 'LIE', 'LKA', 'LSO', 'LSO;ZAF', 'LTU', 'LUX', 'LVA', 
-'MAR', 'MCO', 'MDG', 'MDV', 'MEX', 'MHL', 'MKD', 'MLI', 'MLT', 
-'MMR', 'MNE', 'MNG', 'MNG;RUS', 'MOZ', 'MRT', 'MUS', 'MWI', 'MYS', 
-'NAM', 'NER', 'NGA', 'NIC', 'NLD', 'NLD;DEU;DNK', 'NOR', 'NPL', 
-'NZL', 'OMN', 'PAK', 'PAN', 'PCN', 'PER', 'PHL', 'PLW', 'PNG', 
-'POL', 'PRT', 'PRY', 'ROU', 'RUS', 'RWA', 'SAU', 'SDN', 'SEN', 
-'SGP', 'SLB', 'SLE', 'SLV', 'SRB', 'SSD', 'STP', 'SUR', 'SVK', 
-'SVK;HUN', 'SVN', 'SWE', 'SWZ', 'SYC', 'TCD', 'TGO', 'THA', 'TJK', 
-'TKM', 'TLS', 'TON', 'TTO', 'TUN', 'TUR', 'TUV', 'TWN', 'TZA', 
-'UGA', 'UKR', 'UKR;DEU;SVK', 'URY', 'USA', 'UZB', 'VCT', 'VEN', 
-'VNM', 'VUT', 'WSM', 'YEM', 'ZAF', 'ZMB', 'ZMB;ZWE', 'ZWE']
- 
+['omit data']
+DESIG = ['Botanical Garden', 'Recreation Area']
+DESIG_ENG = ['UNESCO-MAB Biosphere Reserve']
+STATUS = ['Proposed', 'Not Reported']
+
+['select data']
+PARENT_ISO3 = ["AUS"]

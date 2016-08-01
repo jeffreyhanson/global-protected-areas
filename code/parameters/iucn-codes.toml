@@ -1,0 +1,3 @@
+title = "iucn codes"
+
+IUCN_CAT = ['Ia', 'Ib', 'II', 'III', 'IV', 'V', 'VI', 'Not Assigned', 'Not Applicable', 'Not Reported']
