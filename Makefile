@@ -3,7 +3,7 @@ all: geotiff shapefile
 	
 # command to clean dirs
 clean:
-	@rm WDPA.*
+	@rm -f WDPA.*
 	@rm -rf data/raw/*
 	@rm -rf data/intermediate/* 
 
