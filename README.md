@@ -56,4 +56,4 @@ To run all computational analyses: Double click on `run.bat` or type `make all` 
 
 ### If you used this program in your paper, please cite it.
 
-Hanson J. O. (2016). Global protected areas. version 1.0.0. doi: 10.5281/zenodo.35031.
+Hanson J. O. (2016). Global protected areas. version 1.0.1. doi: 10.5281/zenodo.35031.
