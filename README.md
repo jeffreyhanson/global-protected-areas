@@ -1,4 +1,4 @@
-Global protected areas (under active development)
+Global protected areas
 =================================================
 [![DOI](https://zenodo.org/badge/18940/paleo13/global-protected-areas.svg)](https://zenodo.org/badge/latestdoi/18940/paleo13/global-protected-areas)
 
@@ -59,4 +59,4 @@ Double click on `run.bat` to run all computational analyses. After the processin
 
 ### If you used this program in your paper, please cite it.
 
-Hanson J. O. (2016). Global protected areas. version 0.0.0. doi: 10.5281/zenodo.35031.
+Hanson J. O. (2016). Global protected areas. version 1.0.0. doi: 10.5281/zenodo.35031.

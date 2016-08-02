@@ -1,9 +1,5 @@
 title = 'area omission parameters'
 
 ['omit data']
-DESIG = ['Botanical Garden', 'Recreation Area']
 DESIG_ENG = ['UNESCO-MAB Biosphere Reserve']
 STATUS = ['Proposed', 'Not Reported']
-
-['select data']
-PARENT_ISO3 = ["AUS"]
