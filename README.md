@@ -51,6 +51,7 @@ To run all computational analyses: Double click on `run.bat` or type `make all` 
 * Python packages
 	+ arcpy (installed automatically with ArcMAP)
 	+ toml
+	+ wget
 
 -----
 
