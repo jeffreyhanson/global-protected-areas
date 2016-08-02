@@ -1,4 +1,4 @@
 title = "general parameters"
 
-threads = 1
+threads = "80%"
 
