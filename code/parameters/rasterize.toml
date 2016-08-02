@@ -1,5 +1,5 @@
 title = "rasterization parameters"
 
-cellsize = 100000
+cellsize = 5000
 cell_assignment = 'CELL_CENTER'
  

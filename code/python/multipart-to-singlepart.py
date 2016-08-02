@@ -14,6 +14,9 @@ arcpy.env.parallelProcessingFactor=general_params['threads']
 arcpy.env.overwriteOutput = True
 
 ### Main processing
-# update data
-arcpy.Update_analysis(sys.argv[1],sys.argv[2], sys.argv[3])
+arcpy.MultipartToSinglepart_management(sys.argv[1], sys.argv[2])
 
+
+
+
+ 

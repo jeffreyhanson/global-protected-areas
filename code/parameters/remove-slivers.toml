@@ -1,0 +1,4 @@
+title = "remove slivers parameters"
+
+minimum_size_in_square_kilometers = 1
+selection = "AREA"

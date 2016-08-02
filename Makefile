@@ -1,78 +1,75 @@
 # main operation
-all: WDPA.tif
+all: geotiff shapefile
 	
 # command to clean dirs
 clean:
-	@rm WDPA.tif
+	@rm WDPA.*
 	@rm -rf data/raw/*
 	@rm -rf data/intermediate/* 
 
 # commands for creating final products
-WDPA.tif: data/intermediate/11/WDPA.tif
-	@echo "exporting data"
-	@cp data/intermediate/11/WDPA.tif .
+geotiff: data/intermediate/12/WDPA.tif
+	@echo "exporting geotiff data"
+	@cp data/intermediate/12/WDPA.tif .
+
+shapefile: data/intermediate/12/WDPA.shp
+	@echo "exporting shapefile data"
+	@cp data/intermediate/12/WDPA.shp .
+	@cp data/intermediate/12/WDPA.shx .
+	@cp data/intermediate/12/WDPA.cpg .
+	@cp data/intermediate/12/WDPA.dbf .
+	@cp data/intermediate/12/WDPA.sbn .
+	@cp data/intermediate/12/WDPA.prj .
 
 ## commands for processing data
+# extract shapefile
+data/intermediate/12/WDPA.shp: data/intermediate/10/WDPA_shapefile.gdb
+	@echo "converting data to shapefile"
+	@mkdir -p data/intermediate/12
+	@python code/python/copy-data.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/12/WDPA.shp"
+
 # convert to tif
-data/intermediate/11/WDPA.tif: data/intermediate/10/WDPA_shapefile.gdb code/python/rasterize.py code/parameters/rasterize.toml code/parameters/general.toml
-	@echo "rasterizing data"
-	@mkdir -p data/intermediate/11
-	@python code/python/rasterize.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/11/WDPA.tif"
-
-# use successive updates to merge polygons
-data/intermediate/10/WDPA_shapefile.gdb: data/intermediate/9/WDPA_shapefile.gdb code/python/update.py code/parameters/general.toml
-	@echo "merging though successive updating data"
-	@mkdir -p data/intermediate/10
-	@python code/python/create-gdb.py "data/intermediate/10/WDPA_shapefile.gdb"
-	@python code/python/update.py "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_10" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_9" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
-	@python code/python/update.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_8" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
-	@python code/python/update.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_7" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
-	@python code/python/update.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_6" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
-	@python code/python/update.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_5" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
-	@python code/python/update.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_4" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
-	@python code/python/update.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_3" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
-	@python code/python/update.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_2" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
-	@python code/python/update.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_1" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
-
-# dissolve separate iucn polygons
-data/intermediate/9/WDPA_shapefile.gdb: data/intermediate/8/WDPA_shapefile.gdb code/python/dissolve.py code/parameters/general.toml
-	@echo "dissolving data for each iucn category"
-	@mkdir -p data/intermediate/9
-	@python code/python/create-gdb.py "data/intermediate/9/WDPA_shapefile.gdb"	
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_1" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_1"
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_2" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_2"
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_3" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_3"
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_4" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_4"
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_5" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_5"
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_6" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_6"
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_7" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_7"
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_8" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_8"
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_9" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_9"
-	@python code/python/dissolve.py "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_10" "IUCN_CODE" "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile_10"
-
-# extract separate iucn polygons
-data/intermediate/8/WDPA_shapefile.gdb: data/intermediate/7/WDPA_shapefile.gdb code/python/select.py code/parameters/general.toml
-	@echo "seperating data for each iucn category"
-	@mkdir -p data/intermediate/8
-	@python code/python/create-gdb.py "data/intermediate/8/WDPA_shapefile.gdb"	
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "1" "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_1"
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "2" "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_2"
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "3"  "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_3"
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "4" "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_4"
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "5" "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_5"
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "6" "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_6"
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "7" "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_7"
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "8" "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_8"
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "9" "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_9"
-	@python code/python/select.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CODE" "10" "data/intermediate/8/WDPA_shapefile.gdb/WDPA_shapefile_10"
+data/intermediate/12/WDPA.tif: data/intermediate/11/WDPA_shapefile.gdb code/python/rasterize.py code/parameters/rasterize.toml code/parameters/general.toml
+	@echo "converting data to raster format"
+	@mkdir -p data/intermediate/12
+	@python code/python/rasterize.py "data/intermediate/11/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/12/WDPA.tif"
 
 # assign iucn codes
-data/intermediate/7/WDPA_shapefile.gdb: data/intermediate/6/WDPA_shapefile.gdb code/python/assign_codes.py code/parameters/general.toml code/parameters/iucn-codes.toml
+data/intermediate/11/WDPA_shapefile.gdb: data/intermediate/10/WDPA_shapefile.gdb code/python/assign_codes.py code/parameters/general.toml code/parameters/iucn-codes.toml
 	@echo "assigning codes to data"
+	@mkdir -p data/intermediate/11
+	@python code/python/create-gdb.py "data/intermediate/11/WDPA_shapefile.gdb"	
+	@python code/python/copy-data.py "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/11/WDPA_shapefile.gdb/WDPA_shapefile"
+	@python code/python/assign_codes.py "data/intermediate/11/WDPA_shapefile.gdb/WDPA_shapefile"
+
+# remove slivers
+data/intermediate/10/WDPA_shapefile.gdb: data/intermediate/9/WDPA_shapefile.gdb code/python/remove_slivers.py code/parameters/general.toml code/parameters/remove-slivers.toml
+	@echo "removing slivers from data"
+	@mkdir -p data/intermediate/10
+	@python code/python/create-gdb.py "data/intermediate/10/WDPA_shapefile.gdb"	
+	@python code/python/multipart-to-singlepart.py "data/intermediate/9/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/10/WDPA_shapefile.gdb/temp"
+	@python code/python/remove_slivers.py "data/intermediate/10/WDPA_shapefile.gdb/temp" "data/intermediate/10/WDPA_shapefile.gdb/WDPA_shapefile"
+	
+# use successive updates to merge polygons
+data/intermediate/9/WDPA_shapefile.gdb: data/intermediate/8/WDPA_shapefile.gdb code/python/successive_update.py code/parameters/general.toml code/parameters/iucn-codes.toml
+	@echo "merging though successive updating data"
+	@mkdir -p data/intermediate/9
+	@python code/python/create-gdb.py "data/intermediate/9/WDPA_shapefile.gdb"
+	@python code/python/successive_update.py "data/intermediate/8/WDPA_shapefile.gdb" "data/intermediate/9/WDPA_shapefile.gdb" "WDPA_shapefile"
+
+# dissolve separate iucn polygons
+data/intermediate/8/WDPA_shapefile.gdb: data/intermediate/7/WDPA_shapefile.gdb code/python/dissolve_each.py code/parameters/general.toml
+	@echo "dissolving data for each iucn category"
+	@mkdir -p data/intermediate/8
+	@python code/python/create-gdb.py "data/intermediate/8/WDPA_shapefile.gdb"	
+	@python code/python/dissolve_each.py "data/intermediate/7/WDPA_shapefile.gdb" "IUCN_CAT" "data/intermediate/8/WDPA_shapefile.gdb"
+
+# extract separate iucn polygons
+data/intermediate/7/WDPA_shapefile.gdb: data/intermediate/6/WDPA_shapefile.gdb code/python/select_each.py code/parameters/general.toml
+	@echo "seperating data for each iucn category"
 	@mkdir -p data/intermediate/7
-	@python code/python/create-gdb.py "data/intermediate/7/WDPA_shapefile.gdb"	
-	@python code/python/copy-data.py "data/intermediate/6/WDPA_shapefile.gdb/WDPA_shapefile" "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile"
-	@python code/python/assign_codes.py "data/intermediate/7/WDPA_shapefile.gdb/WDPA_shapefile"
+	@python code/python/create-gdb.py "data/intermediate/7/WDPA_shapefile.gdb"
+	@python code/python/select_each.py "data/intermediate/6/WDPA_shapefile.gdb/WDPA_shapefile" "IUCN_CAT" "data/intermediate/7/WDPA_shapefile.gdb"
 
 # merge point and polygons
 data/intermediate/6/WDPA_shapefile.gdb: data/intermediate/4/WDPA_shapefile_polygons.gdb data/intermediate/5/WDPA_shapefile_points.gdb code/python/merge.py code/python/create-gdb.py code/parameters/general.toml

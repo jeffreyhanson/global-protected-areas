@@ -16,4 +16,7 @@ arcpy.env.overwriteOutput = True
 
 ### Main processing
 # create gdb
-arcpy.Copy_management(sys.argv[1], sys.argv[2])
+if not sys.argv[1].endswith('.shp') and not sys.argv[2].endswith('.shp'):
+	arcpy.Copy_management(sys.argv[1], sys.argv[2])
+else:
+	arcpy.CopyFeatures_management(sys.argv[1], sys.argv[2])
