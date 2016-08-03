@@ -16,8 +16,7 @@ arcpy.env.parallelProcessingFactor=general_params['threads']
 arcpy.env.overwriteOutput = True
 
 # get date string
-now=datetime.datetime.now()
-current_date = str(now.strftime('%B'))+str(now.year)
+current_date=os.listdir('data/raw/WDPA_geodatabase')[0].split('_')[1]
 
 ### Main processing
 # extract data from geodatabase
