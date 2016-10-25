@@ -5,6 +5,9 @@ import toml
 import sys
 
 ### Preliminary processing
+# checkout sa
+arcpy.CheckOutExtension("Spatial")
+
 # load parameters
 with open("code/parameters/general.toml") as conffile:
 	general_params = toml.loads(conffile.read())
