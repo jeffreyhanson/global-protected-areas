@@ -1,5 +1,13 @@
 title = 'area omission parameters'
 
-['omit data']
+['omit character data']
 DESIG_ENG = ['UNESCO-MAB Biosphere Reserve']
 STATUS = ['Proposed', 'Not Reported']
+
+## Examples of methods for subsetting WDPA data
+
+# ['select character data']
+# DESIG = 'National Park'
+
+# ['select numeric data']
+# STATUS_YR = '>= 2000'
