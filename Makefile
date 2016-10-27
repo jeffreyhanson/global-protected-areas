@@ -85,6 +85,12 @@ data/intermediate/4/WDPA_shapefile_polygons.gdb: data/intermediate/3/WDPA_shapef
 	@python code/python/create-gdb.py "data/intermediate/4/WDPA_shapefile_polygons.gdb"
 	@python code/python/simplify.py "data/intermediate/3/WDPA_shapefile_polygons.gdb/WDPA_shapefile_polygons" "data/intermediate/4/WDPA_shapefile_polygons.gdb/WDPA_shapefile_polygons"
 
+data/intermediate/3/WDPA_shapefile_polygons.gdb: data/intermediate/2/WDPA_shapefile_polygons.gdb code/python/project.py code/python/create-gdb.py code/parameters/project.toml code/parameters/general.toml
+	@echo "reprojecting polygon data to output coordinate system"
+	@mkdir -p data/intermediate/3
+	@python code/python/create-gdb.py "data/intermediate/3/WDPA_shapefile_polygons.gdb"
+	@python code/python/project.py "data/intermediate/2/WDPA_shapefile_polygons.gdb/WDPA_shapefile_polygons" "data/intermediate/3/WDPA_shapefile_polygons.gdb/WDPA_shapefile_polygons" "output_coordinate_reference_system"
+
 # prepare points
 data/intermediate/5/WDPA_shapefile_points.gdb: data/intermediate/4/WDPA_shapefile_points.gdb  code/python/create-gdb.py  code/python/project.py code/parameters/project.toml code/parameters/general.toml
 	@echo "reprojecting point data again to match polygon data"
@@ -97,12 +103,6 @@ data/intermediate/4/WDPA_shapefile_points.gdb: data/intermediate/3/WDPA_shapefil
 	@mkdir -p data/intermediate/4
 	@python code/python/create-gdb.py "data/intermediate/4/WDPA_shapefile_points.gdb"
 	@python code/python/buffer.py "data/intermediate/3/WDPA_shapefile_points.gdb/WDPA_shapefile_points" "data/intermediate/4/WDPA_shapefile_points.gdb/WDPA_shapefile_points"
-
-data/intermediate/3/WDPA_shapefile_polygons.gdb: data/intermediate/2/WDPA_shapefile_polygons.gdb code/python/project.py code/python/create-gdb.py code/parameters/project.toml code/parameters/general.toml
-	@echo "reprojecting polygon data to output coordinate system"
-	@mkdir -p data/intermediate/3
-	@python code/python/create-gdb.py "data/intermediate/3/WDPA_shapefile_polygons.gdb"
-	@python code/python/project.py "data/intermediate/2/WDPA_shapefile_polygons.gdb/WDPA_shapefile_polygons" "data/intermediate/3/WDPA_shapefile_polygons.gdb/WDPA_shapefile_polygons" "output_coordinate_reference_system"
 
 data/intermediate/3/WDPA_shapefile_points.gdb: data/intermediate/2/WDPA_shapefile_points.gdb code/python/project.py code/python/create-gdb.py code/parameters/project.toml code/parameters/general.toml
 	@echo "reprojecting point data to distance coordinate system"
