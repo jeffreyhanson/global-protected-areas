@@ -142,12 +142,12 @@ data/intermediate/1/WDPA_shapefile_polygons.gdb: data/raw/WDPA_shapefile_polygon
 data/raw/WDPA_shapefile_points.gdb: data/raw/WDPA_geodatabase code/python/extract-data.py code/python/create-gdb.py code/parameters/general.toml
 	@echo "extracting point data"
 	@python code/python/create-gdb.py "data/raw/WDPA_shapefile_points.gdb"
-	@python code/python/extract-data.py "point" "data/raw/WDPA_shapefile_points.gdb/WDPA_shapefile_points"
+	@python code/python/extract-data.py "Point" "data/raw/WDPA_shapefile_points.gdb/WDPA_shapefile_points"
 
 data/raw/WDPA_shapefile_polygons.gdb: data/raw/WDPA_geodatabase code/python/extract-data.py code/python/create-gdb.py code/parameters/general.toml
 	@echo "extracting polygon data"
 	@python code/python/create-gdb.py "data/raw/WDPA_shapefile_polygons.gdb"
-	@python code/python/extract-data.py "poly" "data/raw/WDPA_shapefile_polygons.gdb/WDPA_shapefile_polygons"
+	@python code/python/extract-data.py "polygon" "data/raw/WDPA_shapefile_polygons.gdb/WDPA_shapefile_polygons"
 
 data/raw/WDPA_geodatabase: code/python/download-data.py
 	@echo "downloading data"
