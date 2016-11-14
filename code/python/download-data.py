@@ -23,7 +23,6 @@ with open("code/parameters/download.toml") as conffile:
 if 'downloaded_file_name' in download_params.keys():
 	filename = os.path.expanduser(download_params['downloaded_file_name'])
 	filename = filename.replace('\\', '/')
-	print filename
 	if os.path.isfile(filename):
 		filename=download_params['downloaded_file_name']
 	else:
