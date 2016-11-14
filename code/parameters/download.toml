@@ -1,0 +1,4 @@
+title = "download parameters"
+
+## example of using previously downloaded dataset
+# downloaded_file_name = "~/Downloads/WDPA_November2016_Public.zip"
