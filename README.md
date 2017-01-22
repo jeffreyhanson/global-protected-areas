@@ -1,6 +1,6 @@
 Global protected areas
 =================================================
-[![DOI](https://zenodo.org/badge/18940/paleo13/global-protected-areas.svg)](https://zenodo.org/badge/latestdoi/18940/paleo13/global-protected-areas)
+[![DOI](https://zenodo.org/badge/18940/jeffreyhanson/global-protected-areas.svg)](https://zenodo.org/badge/latestdoi/18940/paleo13/global-protected-areas)
 
 [Jeffrey O. Hanson](https://wwww.jeffrey-hanson.com)
 
@@ -8,7 +8,7 @@ Correspondence should be addressed to [jeffrey.hanson@uqconnect.edu.au](mailto:j
 
 -----
 
-This repository contains source code for automatically downloading, cleaning, and processing the [World Database on Protected Areas](http://www.protectedplanet.net/). By using this repository, users can maintain an up to date version of the world's protected areas.
+This repository contains source code for automatically downloading, cleaning, and processing the [World Database on Protected Areas](http://www.protectedplanet.net/). By using this repository, users can maintain an up to date version of the world's protected areas. **If you encounter any errors or bugs, [please file an issue](https://github.com/jeffreyhanson/global-protected-areas/issues)**.
 
 Briefly, the following operations are run in sequence using [ESRI ArcGIS](https://www.esri.com/software/arcgis):
 
