@@ -2,24 +2,28 @@
 all: geotiff shapefile
 	
 # command to clean dirs
-clean:
-	@rm -f WDPA.*
-	@rm -rf data/raw/*
-	@rm -rf data/intermediate/* 
+clean: code/python/delete-dir.py code/python/delete-files.py code/python/new-file.py
+	@python code/python/delete-files.py "WDPA*"
+	@python code/python/delete-dir.py data/raw
+	@python code/python/create-dir.py data/raw
+	@python code/python/new-file.py data/raw/.gitkeep
+	@python code/python/delete-dir.py data/intermediate
+	@python code/python/create-dir.py data/intermediate
+	@python code/python/new-file.py data/intermediate/.gitkeep
 
 # commands for creating final products
-geotiff: data/intermediate/12/WDPA.tif
+geotiff: data/intermediate/12/WDPA.tif code/python/copy-file.py
 	@echo "exporting geotiff data"
-	@cp data/intermediate/12/WDPA.tif .
+	@python code/python/copy-file.py data/intermediate/12/WDPA.tif WDPA.tif
 
-shapefile: data/intermediate/12/WDPA.shp
+shapefile: data/intermediate/12/WDPA.shp code/python/copy-file.py
 	@echo "exporting shapefile data"
-	@cp data/intermediate/12/WDPA.shp .
-	@cp data/intermediate/12/WDPA.shx .
-	@cp data/intermediate/12/WDPA.cpg .
-	@cp data/intermediate/12/WDPA.dbf .
-	@cp data/intermediate/12/WDPA.sbn .
-	@cp data/intermediate/12/WDPA.prj .
+	@python code/python/copy-file.py data/intermediate/12/WDPA.shp WDPA.shp 
+	@python code/python/copy-file.py data/intermediate/12/WDPA.shx WDPA.shx
+	@python code/python/copy-file.py data/intermediate/12/WDPA.cpg WDPA.cpg
+	@python code/python/copy-file.py data/intermediate/12/WDPA.dbf WDPA.dbf
+	@python code/python/copy-file.py data/intermediate/12/WDPA.sbn WDPA.sbn
+	@python code/python/copy-file.py data/intermediate/12/WDPA.prj WDPA.prj
 
 ## commands for processing data
 # extract shapefile
